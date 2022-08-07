@@ -10,7 +10,7 @@ export const AccordionCard = ({titulo, id, lugarPublicacion, fechaPublicacion, e
 
     useEffect(()=>{
         
-        fetch('http://localhost:8000/index.php/text/getByBook?id='+id).then(response=>response.json()).then(data=>{setTexts(data); console.log(data);})
+        fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/text/getByBook?id='+id).then(response=>response.json()).then(data=>{setTexts(data); console.log(data);})
 
     }, [])
 

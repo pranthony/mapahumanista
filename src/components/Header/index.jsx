@@ -5,10 +5,10 @@ import { NavBar } from '../NavBar'
 
 export default function Header() {
   return (
-    <header class="header">
+    <header className="header">
 
     <div className="header__portada ">
-        <a className="portada__brand width_disposition flex" href="/">
+        <a className="portada__brand flex" href="/">
             <img loading="lazy" src={brandImg} alt="Logo Lava" className="portada__logo h-100p"/>
             <p className="portada__marca">
                 Laboratorio de <br/> Vanguardia <br/> Pedagógica

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { GalleryCharacters } from '../../components/galleryCharacters'
 import MapaPeru from '../../components/MapaPeru';
+import BrochureDoc from '../../assets/pdf/PDF.pdf'
 
 export const Presentation = () => {
     const [clicked, setClicked] = useState();
@@ -29,12 +30,12 @@ export const Presentation = () => {
     <div>
 
         <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-            <div style={{maxWidth:500, margin: '100px 20px'}}>
+            <div className='grid' style={{maxWidth:500, margin: '100px 20px'}}>
                 <h3>¿DE QUÉ SE TRATA?</h3>
                 <p>El proyecto consta de dos
                 procesos que trabajan articulada
                 y simultáneamente:</p>
-                <ol>
+                <ol style={{marginLeft:20}}>
                     <li>el  Mapa humanista</li>
                     <li>las Escuelas de formación humanista</li>
                 </ol>
@@ -64,11 +65,23 @@ export const Presentation = () => {
                 económica y política (voluntariados,
                 emprendimientos, elecciones).
                 </p>
+                <div className='flex flex-center'>
+                    
 
+                <a className='inline-block'  href={BrochureDoc} target="_blank">
+                    <button  className='flex' >
+                    <span>Mas información</span>
+                    <span className="material-symbols-outlined">
+                        menu_book
+                    </span>
+                    </button>
+                </a>
+                    
+                </div>
             </div>
             <MapaPeru character={character} callback={getDepartment} />
         </div>
-        <div>
+        <div style={{margin:'50px auto'}}>
             {characters && <GalleryCharacters characters={characters} region={clicked} />}
         </div>
 

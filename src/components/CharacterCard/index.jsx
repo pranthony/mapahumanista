@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function CharacterCard({...character}) {
   return (
-    <div style={{ background: '#F4F7A1', maxWidth: '345px', margin:'4px', borderRadius: 10}}>
+    <div style={{textAlign:'center', background: '#F4F7A1', maxWidth: '345px', margin:'4px', borderRadius: 10}}>
         <div
             style={{ width: '100%', height: '100px', display: 'flex', background: 'rgb(211, 93, 25)', borderRadius: 10}}
         >

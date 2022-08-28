@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { VectorMap } from '@south-paw/react-vector-maps'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import CharacterCard from '../CharacterCard';
 import CharacterCircle from '../CharacterCircle';
 import peru from './peru';
@@ -8,6 +8,7 @@ import peru from './peru';
 const Map = styled.div`
   margin: 50px auto;
   width: 500px;
+  
   svg {
     stroke: #242424;
     // All layers are just path elements
@@ -42,6 +43,8 @@ const Map = styled.div`
 export default function MapaPeru({character, callback}) {
   const [hovered, setHovered] = useState(null);
   const [position, setPosition] = useState({});
+  const cityHover = useRef()
+  const vectorMapRef = useRef()
   
   const layerProps = {
     onMouseEnter: ({ target }) => setHovered(target.attributes.name.value),
@@ -49,14 +52,21 @@ export default function MapaPeru({character, callback}) {
     onMouseLeave: ({ target }) => setHovered(null)
   };
 
+  const handlerMouseMove = (e)=>{
+    setPosition({left: `${e.clientX}px`, top : `${e.clientY}px`, display:'grid'})
+    document.onscroll = ()=>{
+      cityHover.current.style.display='none'
+    }
+  }
+
   return (
-        <div style={{display: 'grid', justifyContent: 'end'}}>
+        <div className='grid'>
           <Map className='mapa'>  
-          <VectorMap onMouseMove={(e)=>setPosition({left: `${e.clientX}px`, top : `${e.clientY}px`})} layerProps={layerProps} {...peru}/>
-          {hovered && <code className='cityHover' style={{position: 'fixed' ,zIndex: 9999, pointerEvents: 'none', marginLeft: '15px', ...position, background: '#242424', padding: '5px 10px', borderRadius: 5}}>{hovered}</code>}
+          <VectorMap   onMouseMove={(e)=>handlerMouseMove(e)} layerProps={layerProps} {...peru}/>
+          {hovered && <code ref={cityHover} className='cityHover' style={{ ...position}}>{hovered}</code>}
           </Map>
           {character &&
-            <div style={{position: 'absolute', transform: 'translate(-110px, 500px)'}}>
+            <div className="character">
               <CharacterCircle {...character}/>
             </div>
           }

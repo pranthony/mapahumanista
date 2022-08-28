@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Loader } from "../../atoms/loaders";
 import { AccordionCard } from "../../components/AccordionCard";
 
 
@@ -40,14 +41,14 @@ const DetailCharacterView = props =>{
     }
     return(
     <div className=" width_disposition"> 
-        <div className="container" style={{maxWidth: ''}}>
-            {info && 
-            <div className="" style={{display:"", marginTop:50, width: 260}}>
+        <div className="container">
+            {info ? 
+            <div className="grid grid-center" style={{ width: 260}}>
                 <h2 variant={'h3'} style={{textAlign:'center'}}>{info.nombres}</h2>
 
                 <div>
 
-                    <img style={{width:"250px", borderRadius:"10px"}} src={info.linkImg}/>
+                    <img style={{width:"250px", borderRadius:"10px"}} src={info.linkImg} loading="lazy"/>
                 </div>
                 <div style={{ margin:12}}>
 
@@ -55,12 +56,14 @@ const DetailCharacterView = props =>{
 
                 </div>
 
-            </div>}
-            <div className="aside" style={{marginTop: 50}}>
+            </div>:
+            <Loader/>
+            }
+            <div className="books grid grid-center" style={{gap: '50px'}}>
                 {books && books.map((book, i)=> <AccordionCard key={i} {...book} showTextContent={showTextContent}/>)}
             </div>
         </div>
-        <div id="textContent">
+        <div id="textContent" >
             {textContent &&
              <div style={{height:'100vh', overflowY: 'scroll', margin: '50px auto', border: '2px solid orange', padding: '30px 25px', borderRadius: '15px'}}>
                 { 

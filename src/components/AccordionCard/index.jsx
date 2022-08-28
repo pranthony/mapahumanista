@@ -15,9 +15,9 @@ export const AccordionCard = ({titulo, id, lugarPublicacion, fechaPublicacion, e
     }, [])
 
     return (
-    <div className="col">
-    <h2>{titulo}</h2>
-    <div className='flex'>
+    <div className="col grid grid-center">
+      <h2 style={{textAlign:'center'}}>{titulo}</h2>
+    <div className='flex flex-center'>
       {imgLink && 
         <img style={{width:'310px'}}  src={imgLink} alt="" />
       }

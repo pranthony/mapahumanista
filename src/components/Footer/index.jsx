@@ -16,7 +16,7 @@ export const Footer = () => {
                     
                     </li>
                     <li>
-                        <a href="https://lavaperu.com/revistatxt" target="_banck">TXT Revista de humanidades y ciencias sociales</a>
+                        <a href="https://lavaperu.com/revistatxt" target="_banck">TXT Revista de Humanidades y Ciencias Sociales</a>
                     </li>
                 </ul>
             </div>

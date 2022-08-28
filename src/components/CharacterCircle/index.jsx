@@ -11,7 +11,7 @@ background: rgb(217, 16, 35); */
 
 export default function CharacterCircle({...character}) {
   return (
-    <div style={{background: 'white', width: '280px', height: '280px', margin:'4px', borderRadius: '15px', overflow: 'hidden', border: '4px solid rgb(211, 93, 25)', background: '#F4F7A1'}}>
+    <div style={{background: 'white', width: '280px', height: '280px', margin:'4px', borderRadius: '15px', overflow: 'hidden', border: '2px solid rgb(211, 93, 25)', background: '#F4F7A1'}}>
         <img
             style={{width:80, height: 80, borderRadius: '50%', border: '1px solid #242424', position: 'absolute', zIndex:100, margin: '10px 5px 0px'}}
             src={character.linkImg}

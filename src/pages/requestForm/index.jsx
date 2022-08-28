@@ -10,11 +10,11 @@ const RequestForm = () => {
                 <hr />
                 <div style={{display: 'grid', gap: 10}}>
                     <label htmlFor="">Nombres y apellidos: </label>
-                    <input type="text" name='namese' />
-                    <label htmlFor="tab">Lugar de origen: </label>
-                    <input type="text" name='region' />
+                    <input type="text" name='namese' placeholder='ej. César Vallejo'/>
+                    <label htmlFor="tab" >Lugar de origen: </label>
+                    <input type="text" name='region' placeholder='ej. La Libertad'/>
                     <label htmlFor="tab">Biodata: </label>
-                    <textarea type="text" name='biografy' rows={10} cols={20}></textarea>
+                    <textarea type="text" name='biografy' rows={10} cols={20} placeholder="ej. César Abraham Vallejo Mendoza fue un poeta y escritor peruano. Es considerado uno de los mayores innovadores de la poesía universal del siglo XX y el máximo exponente de las letras en el Perú.​"></textarea>
                     
                     
                 </div>
@@ -25,9 +25,9 @@ const RequestForm = () => {
                 <hr />
                 <div style={{display: 'grid', gap: 10}}>
                     <label htmlFor="">Libro: </label>
-                    <input type="text" name='namese' />
+                    <input type="text" name='namese' placeholder='ej. Trilce'/>
                     <label htmlFor="tab">Texto ( págs.): </label>
-                    <input type="text" name='region' />
+                    <input type="text" name='region' placeholder='ej. Hojas de ébano (44)'/>
                     <label htmlFor="tab">Audio: </label>
                     <input type="file" accept='mp3' name='biografy' rows={5} />
                     <label htmlFor="tab">Video: </label>

@@ -1,26 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('loaders.css');
+
 :root{
     /*colores*/
     --orange:  rgb(211, 93, 25);
     --white: #F4F7A1;
-    --texto: #42332e;
-    --fondo: #fff;
+    --texto: #F4F7A1;
+    --fondo:  #321216;
     --shadow:rgb(0, 0, 0, 0.2);
     
-    --light-orange: rgb(211, 93, 25, 0.3);
+    --light-orange: rgb(211, 93, 25, 0.8);
     /*tamanos*/
     --large: 3.5rem;
     --medium:1.5rem;
     --small:1rem;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
-body.dark-theme{
-    background-color: var(--fondo);
-    --texto: #fff;
-    --fondo: #321216;
-    --shadow:rgba(255, 255, 255, 0.2);
+body{
+    background-color:var(--fondo);
+    color: var(--texto);
+}
+
+body.light-theme{
+    --texto: #321216;
+    --fondo: #fff;
+    --shadow:rgb(236, 223, 223);
 }
 * {
-    
+    padding: 0px;
+    margin: 0px;
     font-family:  Sans-serif;
     text-decoration: none;
     box-sizing: border-box;
@@ -39,12 +54,23 @@ a{
     align-items: center;
   	justify-content:center;
   	gap:10px;
+    flex-wrap: wrap;
 }
 .grid {
     display: grid;
   	gap:10px;
 }
 
+.grid-center{
+    place-content: center;
+}
+
+.inline-block{
+    display: inline-block;
+}
+.contents{
+    display: contents;
+}
 .w-100p {
     width: 100%;
 }
@@ -161,6 +187,7 @@ a{
 
 #mode{
     cursor: pointer;
+    color: var(--texto)
 }
 #mode:active{
     opacity: 0;
@@ -478,7 +505,7 @@ p{
         place-items: center;
     }
     .header__nav{
-      display: none;
+      
       justify-content: space-around;
       flex-direction:column;
         
@@ -494,6 +521,18 @@ p{
         font-size: 30px;
         border-bottom: 1px solid var(--orange);
 	}
+    .container{
+        flex-wrap: wrap;
+    }
+    div.mapa{
+        width: 300px;
+        margin: 10px;
+    }
+    div.character{
+        position: relative;
+        transform: translate(0px, 0px); 
+        margin: 10px auto;
+    }
 }
 
 @media (max-width:500px) {

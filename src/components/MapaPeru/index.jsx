@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 import { VectorMap } from '@south-paw/react-vector-maps'
-import React, { useEffect, useState, useRef } from 'react'
-import CharacterCard from '../CharacterCard';
-import CharacterCircle from '../CharacterCircle';
+import React, {  useState, useRef } from 'react'
+import CharacterCircle from '../CharacterBubble';
 import peru from './peru';
 
 const Map = styled.div`
@@ -18,11 +17,11 @@ const Map = styled.div`
       outline: none;
       // When a layer is hovered
       &:hover {
-        fill: #F2F8A0;
+        fill: #FF3834;
       }
       // When a layer is focused.
       &:focus {
-        fill: #aaa;
+        fill: #FF3834;
       }
       // When a layer is 'checked' (via checkedLayers prop).
       &[aria-checked='true'] {
@@ -44,7 +43,6 @@ export default function MapaPeru({character, callback}) {
   const [hovered, setHovered] = useState(null);
   const [position, setPosition] = useState({});
   const cityHover = useRef()
-  const vectorMapRef = useRef()
   
   const layerProps = {
     onMouseEnter: ({ target }) => setHovered(target.attributes.name.value),
@@ -55,7 +53,7 @@ export default function MapaPeru({character, callback}) {
   const handlerMouseMove = (e)=>{
     setPosition({left: `${e.clientX}px`, top : `${e.clientY}px`, display:'grid'})
     document.onscroll = ()=>{
-      cityHover.current.style.display='none'
+      if (cityHover.current) cityHover.current.style.display='none'
     }
   }
 

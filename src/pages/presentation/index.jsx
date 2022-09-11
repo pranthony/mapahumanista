@@ -68,7 +68,7 @@ export const Presentation = () => {
                 <div className='flex flex-center'>
                     
 
-                <a className='inline-block'  href={BrochureDoc} target="_blank">
+                <a className='inline-block'  href={BrochureDoc} target="_blank" rel="noreferrer">
                     <button  className='flex' >
                     <span>Mas información</span>
                     <span className="material-symbols-outlined">
@@ -81,10 +81,13 @@ export const Presentation = () => {
             </div>
             <MapaPeru character={character} callback={getDepartment} />
         </div>
+        {characters &&
         <div style={{margin:'50px auto'}}>
-            {characters && <GalleryCharacters characters={characters} region={clicked} />}
+            <h3 >GALERIA DE HUMANISTAS DE {clicked?.toUpperCase()} ({characters.length})</h3>
+            <br />
+             <GalleryCharacters characters={characters} />
         </div>
-
+        }
     </div>
 
   )

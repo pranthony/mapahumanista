@@ -9,7 +9,7 @@ border: 5px solid #242424;
 border-radius: 50px;
 background: rgb(217, 16, 35); */
 
-export default function CharacterCircle({...character}) {
+export default function CharacterBubble({...character}) {
   return (
     <div style={{background: 'white', width: '280px', height: '280px', margin:'4px', borderRadius: '15px', overflow: 'hidden', border: '2px solid rgb(211, 93, 25)', background: '#F4F7A1'}}>
         <img

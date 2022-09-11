@@ -1,6 +1,6 @@
 import React from 'react'
-import spotify from '../../assets/spotify_logo.jpg'
-import youtube from '../../assets/youtube_logo.png'
+import spotify from '../../assets/img/spotify_logo.jpg'
+import youtube from '../../assets/img/youtube_logo.png'
 
 export const Accordion = ({id, titulo, pagInicio, pagFinal, spotifyLink, youtubeLink, showTextContent, textoCompleto, materialEducativo}) => {
   return (

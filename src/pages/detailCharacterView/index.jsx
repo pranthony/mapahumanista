@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../atoms/loaders";
 import { AccordionCard } from "../../components/AccordionCard";
+import { NotFound } from "../../components/NotFound";
 
 
 
@@ -10,68 +11,71 @@ const DetailCharacterView = props =>{
     const [info, setInfo] =useState(null)
     const [books, setBooks] = useState()
     const [textContent, setTextContent] = useState()
+    const [notFound, setNotFound] = useState(false)
 
     let params = useParams()
     useEffect(()=>{
-        fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/character/get?id='+params.idCharacter).then(response=>response.json()).then(data=>{setInfo(data[0]); console.log(data);})
-        
+        fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/character/get?id='+params.idCharacter)
+            .then(response=>response.json())
+            .then(data=>{
+                data[0] ? setInfo(data[0]): setNotFound(true)
+            })
     },[])
 
     useEffect(() => {
         fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/book/getByHumanist?id='+params.idCharacter).then(response=>response.json()).then(data=>{setBooks(data); console.log(data);})
-        
-    },[])
+    },[info])
 
     useEffect(()=>{
-        console.log(' scroll ')
         document.getElementById('textContent')?.scrollIntoView({behavior:"smooth"})
     }, [textContent])
 
     const showTextContent = (id)=>{
-        
         fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/text/getContentText?id='+id)
             .then(response=>response.json())
             .then(data=>{
                 let parrafos = data[0]?.contenido?.split('|')
-
                 setTextContent(parrafos);
-                console.log(data);
             })
         
     }
     return(
     <div className=" width_disposition"> 
-        <div className="container">
             {info ? 
-            <div className="grid grid-center" style={{ width: 260}}>
-                <h2 variant={'h3'} style={{textAlign:'center'}}>{info.nombres}</h2>
-
                 <div>
+                    <div className="container">
+                        <div className="grid grid-center" style={{ width: 260}}>
+                            <h2 variant={'h3'} style={{textAlign:'center'}}>{info.nombres}</h2>
 
-                    <img style={{width:"250px", borderRadius:"10px"}} src={info.linkImg} loading="lazy"/>
-                </div>
-                <div style={{ margin:12}}>
+                            <div>
 
-                <p style={{textAlign:'justify', lineHeight: '1.5' }} variant={'body1'}>{info.biografia}</p>
+                                <img style={{width:"250px", borderRadius:"10px"}} src={info.linkImg} loading="lazy"/>
+                            </div>
+                            <div style={{ margin:12}}>
 
-                </div>
+                            <p style={{textAlign:'justify', lineHeight: '1.5' }} variant={'body1'}>{info.biografia}</p>
 
-            </div>:
-            <Loader/>
+                            </div>
+
+                        </div>
+                        
+                        <div className="books grid grid-center" style={{gap: '50px'}}>
+                            {books && books.map((book, i)=> <AccordionCard key={i} {...book} showTextContent={showTextContent}/>)}
+                        </div>
+                        
+                    </div>
+                    <div id="textContent" >
+                        {textContent &&
+                        <div style={{height:'100vh', overflowY: 'scroll', margin: '50px auto', border: '2px solid orange', padding: '30px 25px', borderRadius: '15px'}}>
+                            { 
+                                textContent.map((e, i)=> <p key={i} style={{maxWidth: '700px', margin: '10px auto', textIndent: '40px '}}>{e}</p>)
+                            }
+                        </div>           
+                        }
+                    </div>
+                </div>:
+                notFound ?<NotFound msj="Humanista no encontrado"/>:<Loader/>
             }
-            <div className="books grid grid-center" style={{gap: '50px'}}>
-                {books && books.map((book, i)=> <AccordionCard key={i} {...book} showTextContent={showTextContent}/>)}
-            </div>
-        </div>
-        <div id="textContent" >
-            {textContent &&
-             <div style={{height:'100vh', overflowY: 'scroll', margin: '50px auto', border: '2px solid orange', padding: '30px 25px', borderRadius: '15px'}}>
-                { 
-                    textContent.map((e, i)=> <p key={i} style={{maxWidth: '700px', margin: '10px auto', textIndent: '40px '}}>{e}</p>)
-                }
-             </div>           
-            }
-        </div>
     </div>
 )}
 

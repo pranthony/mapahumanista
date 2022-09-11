@@ -1,5 +1,5 @@
 import React from 'react'
-import brandImg from '../../assets/Recurso 5.png'
+import brandImg from '../../assets/img/Recurso 5.png'
 import '../../index.css'
 import { NavBar } from '../NavBar'
 

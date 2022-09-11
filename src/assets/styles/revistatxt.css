@@ -56,6 +56,11 @@ a{
   	gap:10px;
     flex-wrap: wrap;
 }
+.flex-space-between{
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 .grid {
     display: grid;
   	gap:10px;
@@ -77,6 +82,10 @@ a{
 .h-100p{
     height: 100%;
 }
+.margin-50-auto{
+    margin: 50px auto;
+}
+
 .font-color{
 	color: var(--texto);
 }
@@ -86,7 +95,7 @@ a{
 }
 
 .header__portada {
-    background-image: url(../banner-festival-de-las-humanidades.jpg);
+    background-image: url(../img/banner-festival-de-las-humanidades.jpg);
     background-position: center center;
     background-size: cover;
     padding: 25px 0px;
@@ -172,7 +181,7 @@ a{
     margin: 6px 10px;
 }
 #nav__input{
-    width: 150px;
+    width: 200px;
     
     border: none;
     background: none;
@@ -411,7 +420,7 @@ p{
     
 }
 #footer{
-    background-image: url("../footer.jpg");
+    background-image: url("../img/footer.jpg");
     background-size: cover;
     background-position: center ;
     color: #42332e;
@@ -456,14 +465,14 @@ p{
 	display: grid;
   	gap:50px;
 }
-@media only screen and (max-width:1000px) {
+@media(max-width:1000px) {
     .banner__titulo {
         font-size: 2.5rem;
     }
     .banner__descripcion {
         font-size: 1.5rem;
     }
-    .portada__brand, .portada__banner {
+    .portada__brand, .portada__banner, div.width_disposition {
         width: 90%;
 
     }

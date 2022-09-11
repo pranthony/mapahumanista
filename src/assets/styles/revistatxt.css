@@ -512,6 +512,16 @@ p{
     .nav__menu {
         display: grid;
         place-items: center;
+        gap: 0px;
+        margin: 10px;
+    }
+    .nav__menu > li{
+        padding: 5px;
+        
+    }
+
+    div.nav__form{
+        margin: 0px 5px 15px;
     }
     .header__nav{
       

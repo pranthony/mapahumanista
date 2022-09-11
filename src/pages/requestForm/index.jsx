@@ -44,10 +44,10 @@ const RequestForm = () => {
                         <textarea name="" id="" cols="50" rows="20" placeholder='Escribe el texto...'></textarea>
                         <p>
                             Nota: 
-                            Recuerda si tienes contenido 
+                            Recuerda que si tienes contenido 
                             multimedia sobre tu humanista, 
                             puedes enviarlo a  
-                            prensalavaperu@gmail.com 
+                            prensalavaperu@gmail.com. 
                         </p>
                         
                     </div>

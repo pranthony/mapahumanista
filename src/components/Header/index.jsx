@@ -8,7 +8,7 @@ export default function Header() {
     <header className="header">
 
     <div className="header__portada ">
-        <a className="portada__brand flex" href="/">
+        <a className="portada__brand flex" href="https://lavaperu.com/">
             <img loading="lazy" src={brandImg} alt="Logo Lava" className="portada__logo h-100p"/>
             <p className="portada__marca">
                 Laboratorio de <br/> Vanguardia <br/> Pedagógica

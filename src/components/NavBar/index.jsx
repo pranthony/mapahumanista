@@ -39,7 +39,7 @@ export const NavBar = () => {
                                 search
                             </span>
                         </a>
-                        <input onChange={e=>handleChange(e)} value={keyword} type="text" name="keyword" id="nav__input" placeholder="Buscar un Humanista "/>
+                        <input onChange={e=>handleChange(e)} value={keyword} type="text" name="keyword" id="nav__input" placeholder="Buscar un humanista "/>
                 
                     </div>
                 

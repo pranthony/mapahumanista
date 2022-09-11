@@ -82,7 +82,7 @@ export const Presentation = () => {
             <MapaPeru character={character} callback={getDepartment} />
         </div>
         {characters &&
-        <div style={{margin:'50px auto'}}>
+        <div className='width_disposition' style={{margin:'50px auto'}}>
             <h3 >GALERIA DE HUMANISTAS DE {clicked?.toUpperCase()} ({characters.length})</h3>
             <br />
              <GalleryCharacters characters={characters} />

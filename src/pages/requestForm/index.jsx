@@ -24,12 +24,12 @@ const RequestForm = () => {
                     <hr />
                     <br />
                     <div style={{display: 'grid', gap: 10}}>
-                        <label htmlFor="">Nombres y apellidos: </label>
-                        <input type="text" name='autor_name' placeholder='ej. César Vallejo'/>
-                        <label htmlFor="tab" >Lugar de origen: </label>
-                        <input type="text" name='autor_region' placeholder='ej. La Libertad'/>
-                        <label htmlFor="tab">Biodata: </label>
-                        <textarea type="text" name='autor_biografy' rows={10} cols={20} placeholder="ej. César Abraham Vallejo Mendoza fue un poeta y escritor peruano. Es considerado uno de los mayores innovadores de la poesía universal del siglo XX y el máximo exponente de las letras en el Perú.​"></textarea>    
+                        <label htmlFor="">Nombres y apellidos *</label>
+                        <input type="text" name='autor_name' required placeholder='ej. César Vallejo'/>
+                        <label htmlFor="tab" >Lugar de origen *</label>
+                        <input type="text" name='autor_region' required placeholder='ej. La Libertad'/>
+                        <label htmlFor="tab">Biodata *</label>
+                        <textarea type="text" name='autor_biografy' required rows={10} cols={20} placeholder="ej. César Abraham Vallejo Mendoza fue un poeta y escritor peruano. Es considerado uno de los mayores innovadores de la poesía universal del siglo XX y el máximo exponente de las letras en el Perú.​"></textarea>    
                     </div>
                     <br />
                 </div>
@@ -37,15 +37,18 @@ const RequestForm = () => {
                     <h3>Propuesta de texto</h3>
                     <hr /><br />
                     <div style={{display: 'grid', gap: 10}}>
-                        <label htmlFor="">Libro: </label>
-                        <input type="text" name='libro' placeholder='ej. Trilce'/>
-                        <label htmlFor="tab">Texto ( págs.): </label>
-                        <input type="text" name='texto' placeholder='ej. Hojas de ébano (44)'/>
-                        <label htmlFor="tab">Audio: </label>
-                        <input type="file" accept='mp3' name='audio' rows={5} />
-                        <label htmlFor="tab">Video: </label>
-                        <input type="file" accept='mp4' name='video' rows={5} />
-                        
+                        <label htmlFor="">Libro *</label>
+                        <input type="text" name='libro' required placeholder='ej. Trilce'/>
+                        <label htmlFor="tab">Texto ( págs.) *</label>
+                        <input type="text" name='texto' required placeholder='ej. Hojas de ébano (44-45)'/>
+                        <textarea name="" id="" cols="50" rows="20" placeholder='Escribe el texto...'></textarea>
+                        <p>
+                            Nota: 
+                            Recuerda si tienes contenido 
+                            multimedia sobre tu humanista, 
+                            puedes enviarlo a  
+                            prensalavaperu@gmail.com 
+                        </p>
                         
                     </div>
                     <br />
@@ -55,11 +58,11 @@ const RequestForm = () => {
                     <hr /><br />
                     <div style={{display: 'grid', gap: 10}}>
                         <label htmlFor="">Nombres * </label>
-                        <input type="text" name='from_name' />
+                        <input type="text" name='from_name' required/>
                         <label htmlFor="tab">Email * </label>
-                        <input type="text" name='from_email' />
+                        <input type="text" name='from_email' required/>
                         <label htmlFor="tab">Biodata: </label>
-                        <input type="text" name='biodata' />
+                        <input type="text" name='biodata' required/>
                     </div>
                     <br />
                 </div>

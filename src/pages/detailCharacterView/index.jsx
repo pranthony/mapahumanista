@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Loader } from "../../atoms/loaders";
 import { AccordionCard } from "../../components/AccordionCard";
 import { NotFound } from "../../components/NotFound";
+import BASE_URL from "../../config/constants";
 
 
 
@@ -15,7 +16,7 @@ const DetailCharacterView = props =>{
 
     let params = useParams()
     useEffect(()=>{
-        fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/character/get?id='+params.idCharacter)
+        fetch(BASE_URL+'/index.php/character/get?id='+params.idCharacter)
             .then(response=>response.json())
             .then(data=>{
                 data[0] ? setInfo(data[0]): setNotFound(true)
@@ -23,7 +24,7 @@ const DetailCharacterView = props =>{
     },[])
 
     useEffect(() => {
-        fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/book/getByHumanist?id='+params.idCharacter).then(response=>response.json()).then(data=>{setBooks(data); console.log(data);})
+        fetch(BASE_URL+'/index.php/book/getByHumanist?id='+params.idCharacter).then(response=>response.json()).then(data=>{setBooks(data);})
     },[info])
 
     useEffect(()=>{
@@ -31,7 +32,7 @@ const DetailCharacterView = props =>{
     }, [textContent])
 
     const showTextContent = (id)=>{
-        fetch('https://fathomless-inlet-79996.herokuapp.com/index.php/text/getContentText?id='+id)
+        fetch(BASE_URL+'/index.php/text/getContentText?id='+id)
             .then(response=>response.json())
             .then(data=>{
                 let parrafos = data[0]?.contenido?.split('|')

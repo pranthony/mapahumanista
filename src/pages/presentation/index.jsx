@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { GalleryCharacters } from '../../components/galleryCharacters'
 import MapaPeru from '../../components/MapaPeru';
 import BrochureDoc from '../../assets/pdf/PDF.pdf'
+import BASE_URL from '../../config/constants';
 
 export const Presentation = () => {
     const [clicked, setClicked] = useState();
@@ -10,7 +11,7 @@ export const Presentation = () => {
 
     useEffect(()=>{
         if(clicked) 
-            fetch(`https://fathomless-inlet-79996.herokuapp.com/index.php/character/listByDepartment?name=${clicked}`)
+            fetch(BASE_URL+`/index.php/character/listByDepartment?name=${clicked}`)
             .then(response=>response.json())
             .then(data=>{
                 setCharacters(data)
@@ -18,9 +19,7 @@ export const Presentation = () => {
             })
       }, [clicked])
 
-    /*   useEffect(()=>{
-    document.getElementById('container__card')?.scrollIntoView({behavior:"smooth"})
-    }, [characters]) */
+    
   const getDepartment = target => {
     setClicked(target.attributes.name.value)
     
